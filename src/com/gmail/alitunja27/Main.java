@@ -12,7 +12,7 @@ public class Main {
         boolean option = true;
         printActions();
         while (option){
-            System.out.println("\nEnter action: (type 7 to show available actions)");
+            System.out.println("\nEnter action (type 7 to show available actions):");
             int optionSelected = scanner.nextInt();
             scanner.nextLine();
 

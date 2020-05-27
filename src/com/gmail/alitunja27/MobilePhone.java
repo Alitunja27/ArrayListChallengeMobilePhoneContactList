@@ -24,15 +24,23 @@ public class MobilePhone {
     }
 
     public void updateContact(String name){
+        boolean checker = true;
         if(findContact(name)<0){
             System.out.println(name + " was not found");
         } else {
-            System.out.println("Please enter the name: ");
-            String newName = scanner.nextLine();
-            System.out.println("Please enter the phone number: ");
-            String newPhoneNumber = scanner.nextLine();
-            contactsArrayList.set(findContact(name),  new Contacts(newName, newPhoneNumber));
-            System.out.println(newName + " was successfully updated!");
+            System.out.println("Please enter the new name: ");
+            while(checker) {
+                String newName = scanner.nextLine();
+                if (findContact(newName) < 0) {
+                    System.out.println("Please enter the phone number: ");
+                    String newPhoneNumber = scanner.nextLine();
+                    contactsArrayList.set(findContact(name), new Contacts(newName, newPhoneNumber));
+                    System.out.println(newName + " was successfully updated!");
+                    checker=false;
+                } else {
+                    System.out.println(newName + " already exist. Please select another name: ");
+                }
+            }
         }
     }
 
